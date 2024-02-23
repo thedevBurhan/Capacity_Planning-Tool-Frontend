@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { Route } from "react-router-dom/cjs/react-router-dom";
+import Login from "./Component/Registation/login.js";
+import SignIn from "./Component/Registation/signIn.js"
+import Dashboard from "./Component/Dashboard.js";
+import Meeting from "./Component/Meeting.js";
+import Chat from "./Component/Chat.js";
+import Personal from "./Component/Notes/Personal.js";
+import Work from "./Component/Notes/Work.js";
+import TimeTracking from "./Component/TimeTracking.js";
+
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/">
+          <Login />
+        </Route>
+        <Route path="/signIn">
+          <SignIn />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/meeting">
+          <Meeting />
+        </Route>
+        <Route path="/chat">
+          <Chat />
+        </Route>
+        <Route path="/personal">
+          <Personal />
+        </Route>
+        <Route path="/work">
+          <Work />
+        </Route>
+        <Route path="/timesheet">
+          <TimeTracking />
+        </Route>
+      </Switch>
     </div>
+
   );
 }
 
