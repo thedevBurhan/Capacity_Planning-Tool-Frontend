@@ -70,6 +70,13 @@ const TimeTracking = () => {
     }, []);
 
     const handleClickOpentimeSheet = () => {
+        const currentDate = new Date();
+        const formattedCurrentDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
+        const existingTimeSheet = timeSheet.find(item => item.currentDate === formattedCurrentDate);
+        if (existingTimeSheet) {
+            alert("Time tracking data already exists for today. You can only edit/update now. ✌️");
+            return;
+        }
         setOpentimeSheet(true);
     };
 
@@ -114,7 +121,7 @@ const TimeTracking = () => {
             if (statusCode === 200) {
 
                 setTimeSheet(allTimeSheetData);
-                console.log(allTimeSheetData);
+                // console.log(allTimeSheetData);
             } else {
                 setDatas({ message });
             }
@@ -211,48 +218,63 @@ const TimeTracking = () => {
             const MTimeOutString = updatedMTimeOut.format('HH:mm:ss');
             const ATimeInString = updatedATimeIn.format('HH:mm:ss');
             const ATimeOutString = updatedATimeOut.format('HH:mm:ss');
-            if (MTimeInString === 'Invalid Date' || MTimeOutString === 'Invalid Date') {
-                alert("Please enter a Shift - 1 time");
-            } else {
-                const response = await axios.put(
-                    `https://capacity-planning-tool-backened.vercel.app/timeSheet/edit/${updateId}`,
-                    {
-                        userid: window.localStorage.getItem("id"),
-                        MTimeIn: MTimeInString,
-                        MTimeOut: MTimeOutString,
-                        ATimeIn: ATimeInString,
-                        ATimeOut: ATimeOutString,
-                        notes: updatedNotes
-                    },
-                    {
-                        headers: {
-                            authtoken: window.localStorage.getItem("token"),
-                        },
-                    }
-                );
-
-                setMTimeIn(updatedMTimeIn);
-                setMTimeOut(updatedMTimeOut);
-                setATimeIn(updatedATimeIn);
-                setATimeOut(updatedATimeOut);
-                setTimeSheet(updatedTimeSheet);
-                setNotes(updatedNotes);
-                getTimeSheet();
-                setUpdatedMTimeIn("");
-                setUpdatedMTimeOut("");
-                setUpdatedATimeIn("");
-                setupdatedATimeOut("");
-                setUpdatedTimeSheet("");
-                Toast.fire({ icon: "success", title: "Updated Successfully" });
-                setOpenUpdatetimesheet(false);
-                // console.log("Edit Time Sheet Response:", response.data);
+            if (MTimeInString === 'Invalid Date' || MTimeOutString === 'Invalid Date' || ATimeInString === 'Invalid Date' || ATimeOutString === 'Invalid Date') {
+                alert("Please enter all time fields.");
+                return
             }
+            if (updatedNotes === "") {
+                alert("Please fill comments.");
+                return
+            }
+            // Calculate time differences
+            const MTimeDifference = updatedMTimeOut.diff(updatedMTimeIn, 'hours', true);
+            const ATimeDifference = updatedATimeOut.diff(updatedATimeIn, 'hours', true);
+            // Calculate total hours worked
+            const totalHours = (MTimeDifference + ATimeDifference).toFixed(2);
+            const response = await axios.put(
+                `https://capacity-planning-tool-backened.vercel.app/timeSheet/edit/${updateId}`,
+                {
+                    userid: window.localStorage.getItem("id"),
+                    MTimeIn: MTimeInString,
+                    MTimeOut: MTimeOutString,
+                    ATimeIn: ATimeInString,
+                    ATimeOut: ATimeOutString,
+                    ShiftOne: MTimeDifference.toFixed(2),
+                    ShiftTwo: ATimeDifference.toFixed(2),
+                    TotalHours: totalHours,
+                    notes: updatedNotes
+                },
+                {
+                    headers: {
+                        authtoken: window.localStorage.getItem("token"),
+                    },
+                }
+            );
+
+            setMTimeIn(updatedMTimeIn);
+            setMTimeOut(updatedMTimeOut);
+            setATimeIn(updatedATimeIn);
+            setATimeOut(updatedATimeOut);
+            setTimeSheet(updatedTimeSheet);
+            setNotes(updatedNotes);
+            // console.log("Edit Time Sheet Response:", response.data);
+            getTimeSheet();
+            setUpdatedMTimeIn("");
+            setUpdatedMTimeOut("");
+            setUpdatedATimeIn("");
+            setupdatedATimeOut("");
+            setUpdatedTimeSheet("");
+            Toast.fire({ icon: "success", title: "Updated Successfully" });
+            setOpenUpdatetimesheet(false);
+
         }
+
         catch (error) {
             console.error("Error in editTimeSheet:", error);
             Toast.fire({ icon: "error", title: "An error occurred while updating Time Sheet" });
         }
     };
+
     return (
         <div>
             <NavBar />
@@ -260,7 +282,7 @@ const TimeTracking = () => {
                 <div className="flex flex-row justify-between items-center py-3">
                     <div className="flex flex-row justify-center items-center">
                         <ArrowBackIosIcon className="w-8 h-8 text-[#F86206] cursor-pointer" onClick={() => history.goBack()} />
-                        <Typography className="font-bold text-[20px] text-[#1B1B1B]">Time Tracking</Typography>
+                        <Typography className="font-medium text-[20px] text-[#1B1B1B]">Time Tracking</Typography>
 
                     </div>
                     <div>
@@ -407,7 +429,7 @@ const TimeTracking = () => {
                                         <CloseIcon />
                                     </IconButton>
                                     <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                       To Update Time Tracking
+                                        To Update Time Tracking
                                     </Typography>
 
                                 </Toolbar>
@@ -416,101 +438,101 @@ const TimeTracking = () => {
                                 <Typography className="font-bold flex justify-start items-center mt-8 ml-14">
                                     Elevating every moment through excellence and dedication. Committed to setting the benchmark in everything we do.
                                 </Typography>
-                              
-                                    <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center ">
 
-                                        <Card className="w-[70%] mr-10 h-[70vh] p-5 rounded-[20px] shadow-md">
+                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center ">
 
-                                            <div className='flex flex-row justify-between'>
-                                                <Typography className='font-bold text-[#F66B0E]'>Revise</Typography>
-                                                <Button onClick={() => editTimeSheet()} className="text-[#F86206]  border border-solid border-[#E3E7EB] px-2 py-1">
-                                                    Save
-                                                </Button>
-                                            </div>
-                                            <div className="  flex flex-col justify-start w-full ">
-                                                <Typography className='font-semibold'>Shift - 1 </Typography>
-                                                <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                    <div className='w-[40%]'>
-                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                            <DemoContainer components={['TimePicker']}>
-                                                                <TimePicker label="In"
-                                                                    value={updatedMTimeIn}
-                                                                    onChange={(newValue) => setUpdatedMTimeIn(newValue)}
-                                                                    required
-                                                                />
-                                                            </DemoContainer>
-                                                        </LocalizationProvider>
-                                                    </div>
-                                                    <div className='w-[40%]'>
-                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                            <DemoContainer components={['TimePicker']}>
-                                                                <TimePicker label="Out"
-                                                                    value={updatedMTimeOut}
-                                                                    onChange={(newValue) => setUpdatedMTimeOut(newValue)}
-                                                                    required />
-                                                            </DemoContainer>
-                                                        </LocalizationProvider>
-                                                    </div>
+                                    <Card className="w-[70%] mr-10 h-[70vh] p-5 rounded-[20px] shadow-md">
+
+                                        <div className='flex flex-row justify-between'>
+                                            <Typography className='font-bold text-[#F66B0E]'>Revise</Typography>
+                                            <Button onClick={() => editTimeSheet()} className="text-[#F86206]  border border-solid border-[#E3E7EB] px-2 py-1">
+                                                Save
+                                            </Button>
+                                        </div>
+                                        <div className="  flex flex-col justify-start w-full ">
+                                            <Typography className='font-semibold'>Shift - 1 </Typography>
+                                            <div className='flex flex-row justify-between items-center mt-2 mb-3'>
+                                                <div className='w-[40%]'>
+                                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                        <DemoContainer components={['TimePicker']}>
+                                                            <TimePicker label="In"
+                                                                value={updatedMTimeIn}
+                                                                onChange={(newValue) => setUpdatedMTimeIn(newValue)}
+                                                                required
+                                                            />
+                                                        </DemoContainer>
+                                                    </LocalizationProvider>
                                                 </div>
-
+                                                <div className='w-[40%]'>
+                                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                        <DemoContainer components={['TimePicker']}>
+                                                            <TimePicker label="Out"
+                                                                value={updatedMTimeOut}
+                                                                onChange={(newValue) => setUpdatedMTimeOut(newValue)}
+                                                                required />
+                                                        </DemoContainer>
+                                                    </LocalizationProvider>
+                                                </div>
                                             </div>
-                                            <div className="mt-3 mb-3 flex flex-col justify-start w-full ">
-                                                <Typography className='font-semibold'>Shift - 2 </Typography>
-                                                <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                    <div className=' w-[40%]'>
-                                                        <div className='control-pane default'>
-                                                            <div className='control-section'>
-                                                                <div className='timepicker-control-section'>
-                                                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                                        <DemoContainer components={['TimePicker']}>
-                                                                            <TimePicker label="In" value={updatedATimeIn}
-                                                                                onChange={(newValue) => setUpdatedATimeIn(newValue)}
-                                                                                required />
-                                                                        </DemoContainer>
-                                                                    </LocalizationProvider>
-                                                                </div>
+
+                                        </div>
+                                        <div className="mt-3 mb-3 flex flex-col justify-start w-full ">
+                                            <Typography className='font-semibold'>Shift - 2 </Typography>
+                                            <div className='flex flex-row justify-between items-center mt-2 mb-3'>
+                                                <div className=' w-[40%]'>
+                                                    <div className='control-pane default'>
+                                                        <div className='control-section'>
+                                                            <div className='timepicker-control-section'>
+                                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                                    <DemoContainer components={['TimePicker']}>
+                                                                        <TimePicker label="In" value={updatedATimeIn}
+                                                                            onChange={(newValue) => setUpdatedATimeIn(newValue)}
+                                                                            required />
+                                                                    </DemoContainer>
+                                                                </LocalizationProvider>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className='w-[40%]'>
-                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                            <DemoContainer components={['TimePicker']}>
-                                                                <TimePicker label="Out" value={updatedATimeOut}
-                                                                    onChange={(newValue) => setupdatedATimeOut(newValue)}
-                                                                    required />
-                                                            </DemoContainer>
-                                                        </LocalizationProvider>
-                                                    </div>
+                                                </div>
+                                                <div className='w-[40%]'>
+                                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                        <DemoContainer components={['TimePicker']}>
+                                                            <TimePicker label="Out" value={updatedATimeOut}
+                                                                onChange={(newValue) => setupdatedATimeOut(newValue)}
+                                                                required />
+                                                        </DemoContainer>
+                                                    </LocalizationProvider>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <Typography className='mb-3 font-semibold'>Comments:</Typography>
-                                                <div className="h-[19vh]  overflow-y-auto ">
-                                                    <Textarea aria-label="minimum height" minRows={4} placeholder="What are working at....."
-                                                        type="text"
-                                                        name="Notes"
-                                                        required
-                                                        onChange={(e) => {
-                                                            setUpdatedNotes(e.target.value);
-                                                        }}
-                                                    />
-                                                </div>
+                                        </div>
+                                        <div>
+                                            <Typography className='mb-3 font-semibold'>Comments:</Typography>
+                                            <div className="h-[19vh]  overflow-y-auto ">
+                                                <Textarea aria-label="minimum height" minRows={4} placeholder="What are working at....."
+                                                    type="text"
+                                                    name="Notes"
+                                                    required
+                                                    onChange={(e) => {
+                                                        setUpdatedNotes(e.target.value);
+                                                    }}
+                                                />
                                             </div>
+                                        </div>
 
-                                        </Card>
+                                    </Card>
 
-                                        <img
+                                    <img
 
-                                            className="w-[50%] h-[100%] animate-up-down"
-                                            srcSet={`${TimeTrackingPic}}?w=24&fit=crop&auto=format&dpr=2 2x`}
-                                            src={`${TimeTrackingPic}`}
-                                            alt="TimeTracking"
-                                            loading="lazy"
-                                        />
+                                        className="w-[50%] h-[100%] animate-up-down"
+                                        srcSet={`${TimeTrackingPic}}?w=24&fit=crop&auto=format&dpr=2 2x`}
+                                        src={`${TimeTrackingPic}`}
+                                        alt="TimeTracking"
+                                        loading="lazy"
+                                    />
 
 
-                                    </div>
-                               
+                                </div>
+
                             </List>
                         </Dialog>
                     </div>
@@ -530,19 +552,19 @@ const TimeTracking = () => {
                                         <Typography className="text-[15px] font-semibold mr-3">{item.currentDate}</Typography>
                                         <Divider orientation="vertical" variant="middle" className='mr-3' flexItem />
                                         <div onClick={() => handleClickOpenUpdateTimeSheet(item)}
-                                            className="text-[#F86206] text-[14px] mr-3 font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                            className="text-[#F86206] text-[14px] mr-3 font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                             <EditNoteIcon className="w-6 h-5"
                                             /> Edit
                                         </div>
                                         <Divider orientation="vertical" variant="middle" className='mr-3' flexItem />
                                         <div onClick={() => delTimeSheet(item._id)}
-                                            className="text-[#DC4134] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                            className="text-[#DC4134] text-[14px] font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                             <DeleteOutlineRoundedIcon className="w-6 h-5"
                                             /> Delete
                                         </div>
                                     </div>
                                     <div className="flex flex-row  items-center">
-                                        <Typography className="text-[15px] font-semibold mr-3">Total :</Typography>
+                                        <Typography className="text-[15px] font-medium  mr-3">Total :</Typography>
                                         <div
                                             className="text-[#6E35ED] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                             <AccessTimeIcon className="w-6 h-5"
@@ -554,7 +576,7 @@ const TimeTracking = () => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography className="text-wrap mb-3 ">
-                                    <span className='font-semibold'>Comments :</span> {item.notes}
+                                    <span className='font-medium'>Comments :</span> {item.notes}
                                 </Typography>
                                 <Paper sx={{ width: '100%' }}>
                                     <TableContainer sx={{ maxHeight: 440 }}>

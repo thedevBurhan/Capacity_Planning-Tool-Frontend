@@ -70,8 +70,8 @@ const Dashboard = () => {
                         </Typography>
                     </div>
                     <div onClick={() => history.push("/meeting")}
-                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-[#F66B0E] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-                        <Typography className="text-2xl text-white">Meeting</Typography>
+                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+                        <Typography className="text-2xl  font-semibold text-black">Meeting</Typography>
                         
                     </div>
                 </Card>
@@ -97,8 +97,8 @@ const Dashboard = () => {
                         </Typography>
                     </div>
                     <div onClick={() => history.push("/chat")}
-                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-[#F66B0E] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-                        <Typography className="text-2xl text-white">Chat</Typography>
+                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+                        <Typography className="text-2xl font-semibold text-black">Chat</Typography>
                         
                     </div>
                 </Card>
@@ -124,13 +124,13 @@ const Dashboard = () => {
                         </Typography>
                     </div>
                     <div 
-                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-[#F66B0E] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-                        <Typography className="text-2xl text-white">Notes</Typography>
+                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+                        <Typography className="text-2xl font-semibold text-black">Notes</Typography>
                         <div className="flex flex-row justify-between  rounded-full bg-white mt-5 ">
                         <Typography onClick={() => history.push("/personal")} className=" cursor-pointer w-[100px] font-bold flex items-center 
-                        justify-center hover:bg-[#F66B0E] hover:rounded-[2px] hover:text-white">Personal</Typography>
+                        justify-center hover:bg-[#fff4e6] hover:rounded-[2px] ">Personal</Typography>
                     
-                        <Typography onClick={() => history.push("/work")} className=" cursor-pointer w-[100px] font-bold flex items-center justify-center hover:text-white hover:bg-[#F66B0E] hover:rounded-[2px]">Work</Typography>
+                        <Typography onClick={() => history.push("/work")} className=" cursor-pointer w-[100px] font-bold flex items-center justify-center hover:bg-[#fff4e6] hover:rounded-[2px]">Work</Typography>
                         </div>
                     </div>
                 </Card>
@@ -155,8 +155,8 @@ const Dashboard = () => {
                         </Typography>
                     </div>
                     <div onClick={() => history.push("/timesheet")}
-                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-[#F66B0E] opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-                        <Typography className="text-2xl text-white">Time Sheet</Typography>
+                        className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+                        <Typography className="text-2xl font-semibold text-black">Time Sheet</Typography>
                         
                     </div>
                 </Card>

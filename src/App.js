@@ -9,6 +9,7 @@ import Chat from "./Component/Chat.js";
 import Personal from "./Component/Notes/Personal.js";
 import Work from "./Component/Notes/Work.js";
 import TimeTracking from "./Component/TimeTracking.js";
+import Settings from "./Component/Settings.js";
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/timesheet">
           <TimeTracking />
+        </Route>
+        <Route path="/settings">
+          <Settings />
         </Route>
       </Switch>
     </div>

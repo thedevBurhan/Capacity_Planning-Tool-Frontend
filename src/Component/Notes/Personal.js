@@ -1,7 +1,7 @@
 import NavBar from "../../Base/NavBar";
 import { useHistory } from "react-router-dom";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Button, Card, Dialog, FormControl, IconButton, InputLabel, List, MenuItem, Select, TextField, Toolbar, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Button, Card, Dialog, Divider, FormControl, IconButton, InputLabel, List, MenuItem, Select, TextField, Toolbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useEffect } from "react";
 import Slide from '@mui/material/Slide';
@@ -60,7 +60,7 @@ const Personal = () => {
     const MyToDoListColorMap = {
         "Ideas": { color: "text-[#ac00e6]" },
         "To-Do": { color: "text-[#ff0000]" },
-        "Quotes": { color: "text-[#30cf95]" },
+        "Quotes": { color: "text-[#0000ff]" },
         "Information / Remainder": { color: "text-[#ff6600]" },
     }
 
@@ -228,7 +228,7 @@ return (
             <div className="flex flex-row justify-between items-center py-3">
                 <div className="flex flex-row justify-center items-center">
                     <ArrowBackIosIcon className="w-8 h-8 text-[#F86206] cursor-pointer" onClick={() => history.goBack()} />
-                    <Typography className="font-bold text-[20px] text-[#1B1B1B]">Personal</Typography>
+                    <Typography className="font-medium text-[20px] text-[#1B1B1B]">Personal</Typography>
 
                 </div>
                 <div>
@@ -419,19 +419,20 @@ return (
                             id="panel1-header"
                         >
                             <div className='flex flex-row w-[98%] justify-between items-center'>
-                                <Typography className={`text-[15px]  font-bold ${MyToDoListColorMap[todolist.noteHead]?.color}`}>{todolist.noteHead}</Typography>
-                                <div className="flex flex-row justify-between items-center w-[23%]">
-                                    <Typography className="text-[12px] font-semibold">{todolist.currentDate}</Typography>
+                                <Typography className={`text-[16px]  font-medium ${MyToDoListColorMap[todolist.noteHead]?.color}`}>{todolist.noteHead}</Typography>
+                                <div className="flex flex-row justify-between items-center w-[25%]">
+                                    <Typography className="text-[14px] mr-3 font-medium">{todolist.currentDate}</Typography>
                                     <div onClick={() => handleClickOpenUpdateNote(todolist)}
-                                        className="text-[#F86206] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                        className="text-[#F86206] text-[14px] font-medium cursor-pointer mr-3 rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                         <EditNoteIcon className="w-6 h-5"
                                         /> Edit
                                     </div>
                                     <div onClick={() => delToDolist(todolist._id)}
-                                        className="text-[#DC4134] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                        className="text-[#DC4134] text-[14px] font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                         <DeleteOutlineRoundedIcon className="w-6 h-5"
                                         /> Delete
                                     </div>
+                                    <Divider orientation="vertical" variant="middle" className='ml-3' flexItem />
                                 </div>
                             </div>
                         </AccordionSummary>
