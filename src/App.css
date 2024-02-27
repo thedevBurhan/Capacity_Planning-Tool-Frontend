@@ -11,6 +11,7 @@ background: linear-gradient(304deg, rgba(255,253,253,0.47102591036414565) 0%,#FF
   background: rgb(255,244,230);
   background: linear-gradient(304deg, rgba(255,244,230,0.5019257703081232) 0%, rgba(255,244,230,0.5271358543417367) 97%);
 }
+
 @keyframes up-down {
   0% {
       transform: translateY(0);

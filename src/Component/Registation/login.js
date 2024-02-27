@@ -201,9 +201,6 @@ const Login = () => {
                 </div>
               </CardContent>
               <div className="mx-5 md:mx-0">
-              <div className=" text-right lg:mr-7 md:mr-0 font-bold text-[#FFA920]">
-                <p>Forget password?</p>
-              </div>
               <div className=" mt-2 lg:ml-5">
                 <Button
                   className="lg:w-[95%] w-[100%] bg-[#FFA920] text-white font-bold cursor-pointer"

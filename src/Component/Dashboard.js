@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Typography } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 import NavBar from "../Base/NavBar";
 import teamwork from "../images/teamwork.png";
 import { TypeAnimation } from "react-type-animation";
@@ -16,15 +16,15 @@ const Dashboard = () => {
 
             <NavBar />
 
-            <div className=" w-[77%] h-[50vh] mx-auto mt-[98px] rounded">
+            <div className=" w-[77%] lg:h-[50vh] md:h-[40vh] mx-auto md:mt-[98px] mt-8 rounded">
                 <div className="flex justify-evenly h-[100%] relative">
-                    <div className="w-[50%]  text-justify">
-                        <Typography className="text-[#292929] font-bold text-[25px] mt-8 p-5">
+                    <div className="lg:w-[50%]  text-justify">
+                        <Typography className="text-[#292929] font-bold md:text-[25px] lg:mt-8 mb-5 md:mb-0 p-5">
                             <span className="text-[#F66B0E]">"</span>Elevating the everyday with a touch of <span className="text-[#F66B0E]">
                                 professionalism</span>  and <span className="text-[#F66B0E]">
                                 poise</span>.<span className="text-[#F66B0E]">"</span>
                         </Typography>
-                        <div className=" w-[50%] bg-[#f77722] rounded-[15px] h-[80%] absolute left-16 z-10 animate-up-down ">
+                        <div className=" lg:w-[50%] md:block hidden bg-[#f77722] rounded-[15px] lg:h-[80%] absolute lg:left-16 z-10 animate-up-down ">
                             <TypeAnimation
                                 className="text-white font-bold text-justify m-8 text-[18px]"
                                 sequence={[
@@ -39,7 +39,7 @@ const Dashboard = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-[50%] bg-[#fff4e6] rounded-[15px] h-[90%] animate-up-down">
+                    <div className="w-[50%] bg-[#fff4e6] rounded-[15px] h-[90%] animate-up-down lg:block hidden">
                         <img
                             className="w-[100%]"
                             srcSet={`${teamwork}}?w=24&fit=crop&auto=format&dpr=2 2x`}
@@ -52,9 +52,9 @@ const Dashboard = () => {
                 </div>
 
             </div>
-            <div className="flex flex-row justify-between items-center w-[77%]  mb-10 mx-auto mt-[130px] rounded ">
+            <div className="flex lg:flex-row lg:justify-between flex-col  items-center lg:w-[77%]  mb-10 mx-auto lg:mt-[130px] rounded ">
 
-                <Card className="w-[50%] h-[400px] mr-5 border border-solid border-[#fff4e6] p-5 cursor-pointer group  relative ">
+                <Card className="md:w-[50%] w-[80%] h-[400px] lg:mr-5 mb-10 border border-solid border-[#fff4e6] p-5 cursor-pointer group  relative ">
                     <video
                         className="h-[150px] mx-auto"
                         autoPlay
@@ -76,7 +76,7 @@ const Dashboard = () => {
                     </div>
                 </Card>
 
-                <Card className="w-[50%]  h-[400px] mr-5  border border-solid border-[#fff4e6] p-5 cursor-pointer  group  relative ">
+                <Card className="md:w-[50%] w-[80%] h-[400px] lg:mr-5 mb-10   border border-solid border-[#fff4e6] p-5 cursor-pointer  group  relative ">
                     <video
                         className="h-[150px] mx-auto"
                         autoPlay
@@ -102,7 +102,7 @@ const Dashboard = () => {
                         
                     </div>
                 </Card>
-                <Card className="w-[50%]  h-[400px] mr-5 border border-solid border-[#fff4e6] p-5  group  relative">
+                <Card className="md:w-[50%] w-[80%] h-[400px] lg:mr-5 mb-10  border border-solid border-[#fff4e6] p-5  group  relative">
                     <video
                         className="h-[150px] mx-auto"
                         autoPlay
@@ -134,7 +134,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="w-[50%]  h-[400px] border border-solid border-[#fff4e6] p-5 cursor-pointer group  relative">
+                <Card className="md:w-[50%] w-[80%] h-[400px] border border-solid border-[#fff4e6] p-5 cursor-pointer group  relative">
                     <video
                         className="h-[150px] mx-auto"
                         autoPlay

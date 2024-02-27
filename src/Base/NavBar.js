@@ -1,14 +1,10 @@
-import { Button, ListItemText, Menu, Typography } from "@mui/material";
+import { Menu, Typography } from "@mui/material";
 import { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import AvTimerIcon from "@mui/icons-material/AvTimer";
-import RssFeedIcon from "@mui/icons-material/RssFeed";
 import PersonIcon from "@mui/icons-material/Person";
-import EmailIcon from "@mui/icons-material/Email";
 import PostAddIcon from '@mui/icons-material/PostAdd';
-import SearchIcon from "@mui/icons-material/Search";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import logo from "../images/idea.png";
@@ -22,7 +18,7 @@ import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 const NavBar = () => {
     const history = useHistory();
     const { pathname } = useLocation();
-    console.log(pathname);
+    // console.log(pathname);
     const [menu, setMenu] = useState(null);
     const menuOpen = Boolean(menu);
     const [NoteNav, setNoteNav] = useState(null);
@@ -82,7 +78,7 @@ const NavBar = () => {
                                         alt="Capacity Planning Tool Logo"
                                         loading="lazy"
                                     />
-                                    <Typography className="text-[#1B1B1B] font-bold ml-3 md:text-[25px] text-[20px] ">Capacity Planning
+                                    <Typography className="text-[#1B1B1B] font-bold ml-3 md:text-[25px] lg:text-[20px] ">Capacity Planning
                                         <span className="text-[#F86206]"> Tool</span></Typography>
                                 </div>
                                 <div className="container-fluid lg:hidden md:block">
