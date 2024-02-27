@@ -33,7 +33,7 @@ const NavBar = () => {
     const userLogoutOpen = Boolean(userLogout);
     const username = window.localStorage.getItem("username");
     const useremail = window.localStorage.getItem("useremail");
-  
+
 
     const handleClickMenu = (event) => {
         setMenu(event.currentTarget);
@@ -82,7 +82,7 @@ const NavBar = () => {
                                         alt="Capacity Planning Tool Logo"
                                         loading="lazy"
                                     />
-                                    <Typography className="text-[#1B1B1B] font-bold ml-3 md:text-[25px] text-[23px] ">Capacity Planning
+                                    <Typography className="text-[#1B1B1B] font-bold ml-3 md:text-[25px] text-[20px] ">Capacity Planning
                                         <span className="text-[#F86206]"> Tool</span></Typography>
                                 </div>
                                 <div className="container-fluid lg:hidden md:block">
@@ -120,37 +120,39 @@ const NavBar = () => {
                                         }}
                                     >
                                         <div className="flex flex-col justify-start">
-                                            <Typography
-                                                onClick={() => history.push("/dashboard")}
-                                                className= 
-                                                       "flex justify-between items-center mx-5 text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"
-                                            >
-                                                <AvTimerIcon className="w-4 h-5" />
-                                                <ListItemText onClick={() => history.push("/dashboard")} primary="Dashboard" className="pl-1 sans" />
-                                            </Typography>
+                                            <div className="flex justify-start ml-5 mb-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                                                <DashboardRoundedIcon className={pathname === "/dashboard" ? "w-[25px] text-[#fba26a] mr-1" : "w-[25px] text-[#6C737F] mr-1"} />
+                                                <Typography className={pathname === "/dashboard" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                    : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"}
+                                                    onClick={() => history.push("/dashboard")} >DashBoard</Typography>
+                                            </div>
 
-                                            <Typography onClick={() => history.push("/meeting")} className={pathname === "/meeting" ?
-                                                "flex justify-between items-center mx-5   text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"
-                                                : "flex justify-between items-center mx-5  text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"}>
-                                                <RssFeedIcon className="w-4 h-5" />
-
-                                                <ListItemText primary="Meeting" className="pl-1" />
-                                            </Typography>
-                                            <Typography onClick={() => history.push("/chat")} className={pathname === "/chat" ?
-                                                "flex justify-between items-center mx-5   text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"
-                                                : "flex justify-between items-center mx-5   text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"}>
-                                                <PersonIcon className="w-4 h-5" />
-
-                                                <ListItemText primary="Chat" className="pl-1" />
-                                            </Typography>
+                                            <div className="flex justify-start ml-5 mb-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                                                <GroupsRoundedIcon className={pathname === "/meeting" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />
+                                                <Typography
+                                                    onClick={() => history.push("/meeting")}
+                                                    className={
+                                                        pathname === "/meeting"
+                                                            ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                            : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"
+                                                    }
+                                                >
+                                                    Meeting
+                                                </Typography>
+                                            </div>
+                                            <div className="flex justify-start ml-5 mb-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                                                <ChatRoundedIcon className={pathname === "/chat" ? "w-[25px] text-[#fba26a] mr-1" : "w-[25px] text-[#6C737F] mr-1"} />
+                                                <Typography className={pathname === "/chat" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                    : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"} onClick={() => history.push("/chat")}>Chat</Typography>
+                                            </div>
                                             <div
                                                 id="basic-button"
                                                 aria-controls={'basic-menu'}
                                                 aria-haspopup="true"
                                                 aria-expanded={'true'}
-                                                onClick={handleClickNotemenu} className=" mb-1 mt-1 flex flex-row justify-start items-center mx-5 text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
-                                                <EmailIcon className="w-4 h-5" />
-                                                <Typography className=" pl-1 ">Notes </Typography>
+                                                onClick={handleClickNotemenu} className="flex justify-start ml-5 mb-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                                                <NotesRoundedIcon className="w-[25px] text-[#6C737F] mr-2" />
+                                                <Typography className="text-[15px] font-medium  text-gray-700 hover:text-[#6C737F] hover:cursor-pointer">Notes</Typography>
                                             </div>
                                             <Menu
                                                 id="basic-menu"
@@ -172,26 +174,24 @@ const NavBar = () => {
                                                 }}
                                             >
                                                 <div className="flex flex-col justify-center px-2">
-                                                    <Typography className={pathname === "/personal" ? "text-[15px] mb-2 font-medium  text-gray-700  hover:cursor-pointer" : "text-[15px] mb-2 font-medium  text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"}
+                                                    <Typography className={pathname === "/personal" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                        : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer mb-2"}
                                                         onClick={() => history.push("/personal")}  >
-                                                        <NotesIcon className="w-5 h-5" /> Personal
+                                                        <NotesIcon className={pathname === "/personal" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />  Personal
                                                     </Typography>
-                                                    <Typography className={pathname === "/work" ? "text-[15px]  font-medium  text-gray-700  hover:cursor-pointer" : "text-[15px]  font-medium  text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"}
+                                                    <Typography className={pathname === "/work" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                        : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"}
                                                         onClick={() => history.push("/work")}>
-                                                        <PostAddIcon className="w-5 h-5" />Work
+                                                        <PostAddIcon className={pathname === "/work" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />Work
                                                     </Typography>
 
                                                 </div>
                                             </Menu>
-                                            <Typography onClick={() => history.push("/timesheet")} className={pathname === "/timesheet" ? "flex justify-between items-center mx-5   text-gray-700 hover:text-[#6C737F] hover:cursor-pointer" : "flex justify-between items-center mx-5   text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"}>
-                                                <SearchIcon className="w-4 h-5" />
-
-                                                <ListItemText
-
-                                                    primary="Time Tracking"
-                                                    className="pl-1"
-                                                />
-                                            </Typography>
+                                            <div className="flex justify-start ml-5  items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                                                <HourglassEmptyRoundedIcon className={pathname === "/timesheet" ? "w-[25px] text-[#fba26a] " : "w-[25px] text-[#6C737F] "} />
+                                                <Typography onClick={() => history.push("/timesheet")} className={pathname === "/timesheet" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
+                                                    : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"} >Time Tracking</Typography>
+                                            </div>
 
                                         </div>
                                     </Menu>
@@ -214,7 +214,7 @@ const NavBar = () => {
                                             <PersonIcon className="w-10 h-10 text-[#8a949f]" />
                                         </a>
 
-                                        <div className="flex flex-col justify-center items-start  ml-2">
+                                        <div className="flex flex-col justify-center items-start  ml-2 mr-2">
                                             <Typography className=" mt-[-5px] font-medium hidden md:block">
                                                 {username}
                                             </Typography>
@@ -244,12 +244,12 @@ const NavBar = () => {
                                         <div className="flex flex-col justify-center items-center">
                                             <Typography className="text-xs py-1 md:text-[15px] font-medium mb-2 text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"
                                                 onClick={() => history.push("/settings")}  >
-                                                <SettingsIcon className={pathname === "/settings" ? "w-[20px] text-[#fba26a]"  : "w-[20px] text-[#6C737F] "} /> Settings
+                                                <SettingsIcon className={pathname === "/settings" ? "w-[20px] text-[#fba26a]" : "w-[20px] text-[#6C737F] "} /> Settings
                                             </Typography>
-                                           
+
                                             <Typography className="text-xs md:text-[15px] py-1 font-medium text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer"
-                                                onClick={() => { history.push("/")}}>
-                                                <LogoutIcon className={pathname === "/" ? "w-[20px] text-[#fba26a] "  : "w-[20px] text-[#6C737F] "} /> Logout
+                                                onClick={() => { history.push("/") }}>
+                                                <LogoutIcon className={pathname === "/" ? "w-[20px] text-[#fba26a] " : "w-[20px] text-[#6C737F] "} /> Logout
                                             </Typography>
                                         </div>
                                     </Menu>
@@ -264,13 +264,13 @@ const NavBar = () => {
                 <div className="lg:w-[64%] xl:w-[68%] h-15 py-3 ml-[175px]  ">
                     <div className="flex justify-between">
                         <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
-                        <DashboardRoundedIcon className={pathname === "/dashboard" ? "w-[25px] text-[#fba26a] mr-1"  : "w-[25px] text-[#6C737F] mr-1"}/>
+                            <DashboardRoundedIcon className={pathname === "/dashboard" ? "w-[25px] text-[#fba26a] mr-1" : "w-[25px] text-[#6C737F] mr-1"} />
                             <Typography className={pathname === "/dashboard" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
                                 : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"}
                                 onClick={() => history.push("/dashboard")} >DashBoard</Typography>
                         </div>
                         <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
-                        <GroupsRoundedIcon className={pathname === "/meeting" ? "w-[25px] text-[#fba26a] mr-2"  : "w-[25px] text-[#6C737F] mr-2"} />
+                            <GroupsRoundedIcon className={pathname === "/meeting" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />
                             <Typography
                                 onClick={() => history.push("/meeting")}
                                 className={
@@ -283,7 +283,7 @@ const NavBar = () => {
                             </Typography>
                         </div>
                         <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
-                        <ChatRoundedIcon className={pathname === "/chat" ? "w-[25px] text-[#fba26a] mr-1"  : "w-[25px] text-[#6C737F] mr-1"} />
+                            <ChatRoundedIcon className={pathname === "/chat" ? "w-[25px] text-[#fba26a] mr-1" : "w-[25px] text-[#6C737F] mr-1"} />
                             <Typography className={pathname === "/chat" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
                                 : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"} onClick={() => history.push("/chat")}>Chat</Typography>
                         </div>
@@ -296,7 +296,7 @@ const NavBar = () => {
                             aria-haspopup="true"
                             aria-expanded={'true'}
                             onClick={handleClickNoteNav} className="flex flex-row justify-center items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
-                           <NotesRoundedIcon className="w-[25px] text-[#6C737F] mr-2" />
+                            <NotesRoundedIcon className="w-[25px] text-[#6C737F] mr-2" />
                             <Typography className="text-[15px] font-medium  text-gray-700 hover:text-[#6C737F] hover:cursor-pointer">Notes</Typography>
                         </div>
 
@@ -325,20 +325,20 @@ const NavBar = () => {
                                 <Typography className={pathname === "/personal" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
                                     : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer mb-2"}
                                     onClick={() => history.push("/personal")}  >
-                                    <NotesIcon className={pathname === "/personal" ? "w-[25px] text-[#fba26a] mr-2"  : "w-[25px] text-[#6C737F] mr-2"} />  Personal
+                                    <NotesIcon className={pathname === "/personal" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />  Personal
                                 </Typography>
 
                                 <Typography className={pathname === "/work" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
                                     : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"}
                                     onClick={() => history.push("/work")}>
-                                    <PostAddIcon className={pathname === "/work" ? "w-[25px] text-[#fba26a] mr-2"  : "w-[25px] text-[#6C737F] mr-2"}/>Work
+                                    <PostAddIcon className={pathname === "/work" ? "w-[25px] text-[#fba26a] mr-2" : "w-[25px] text-[#6C737F] mr-2"} />Work
                                 </Typography>
 
                             </div>
                         </Menu>
 
-                        <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">  
-                        <HourglassEmptyRoundedIcon className={pathname === "/timesheet" ? "w-[25px] text-[#fba26a] "  : "w-[25px] text-[#6C737F] "} />
+                        <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
+                            <HourglassEmptyRoundedIcon className={pathname === "/timesheet" ? "w-[25px] text-[#fba26a] " : "w-[25px] text-[#6C737F] "} />
                             <Typography onClick={() => history.push("/timesheet")} className={pathname === "/timesheet" ? "text-[15px] font-medium text-[#F86206]  hover:cursor-pointer"
                                 : "text-[15px] font-medium text-gray-700 hover:text-[#6C737F] hover:cursor-pointer"} >Time Tracking</Typography>
                         </div>

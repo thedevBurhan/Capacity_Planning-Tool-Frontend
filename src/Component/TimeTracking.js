@@ -278,7 +278,7 @@ const TimeTracking = () => {
     return (
         <div>
             <NavBar />
-            <div className=" mt-10 lg:w-[77%] mx-auto h-[74vh]">
+            <div className=" mt-10 lg:w-[77%] md:w-[90%] w-[90%] mx-auto h-[74vh]">
                 <div className="flex flex-row justify-between items-center py-3">
                     <div className="flex flex-row justify-center items-center">
                         <ArrowBackIosIcon className="w-8 h-8 text-[#F86206] cursor-pointer" onClick={() => history.goBack()} />
@@ -311,13 +311,13 @@ const TimeTracking = () => {
                                 </Toolbar>
                             </AppBar>
                             <List>
-                                <Typography className="font-bold flex justify-start items-center mt-8 ml-14">
+                                <Typography className="font-bold flex justify-start items-center md:mt-8 md:ml-14 mt-2 mx-2 md:mx-0">
                                     Elevating every moment through excellence and dedication. Committed to setting the benchmark in everything we do.
                                 </Typography>
                                 <form onSubmit={addTimeSheet}>
-                                    <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center ">
+                                    <div className="h-[74vh]  mt-5 lg:w-[90%] md:w-[90%] mx-auto flex flex-row justify-between items-center ">
 
-                                        <Card className="w-[70%] mr-10 h-[70vh] p-5 rounded-[20px] shadow-md">
+                                        <Card className="lg:w-[70%] md:w-[100%] w-[100%] lg:mr-10 md:h-[70vh] mx-2 md:mx-0 mt-[130px] md:mt-0 p-5 rounded-[20px] shadow-md">
 
                                             <div className='flex flex-row justify-between'>
                                                 <Typography className='font-bold text-[#F66B0E]'>Revise</Typography>
@@ -327,8 +327,8 @@ const TimeTracking = () => {
                                             </div>
                                             <div className="  flex flex-col justify-start w-full ">
                                                 <Typography className='font-semibold'>Shift - 1 </Typography>
-                                                <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                    <div className='w-[40%]'>
+                                                <div className='flex md:flex-row flex-col justify-between items-center mt-2 mb-3'>
+                                                    <div className='md:w-[40%] w-[100%] mb-3'>
                                                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                             <DemoContainer components={['TimePicker']}>
                                                                 <TimePicker label="In"
@@ -339,7 +339,7 @@ const TimeTracking = () => {
                                                             </DemoContainer>
                                                         </LocalizationProvider>
                                                     </div>
-                                                    <div className='w-[40%]'>
+                                                    <div className='md:w-[40%] w-[100%]'>
                                                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                             <DemoContainer components={['TimePicker']}>
                                                                 <TimePicker label="Out"
@@ -354,8 +354,8 @@ const TimeTracking = () => {
                                             </div>
                                             <div className="mt-3 mb-3 flex flex-col justify-start w-full ">
                                                 <Typography className='font-semibold'>Shift - 2 </Typography>
-                                                <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                    <div className=' w-[40%]'>
+                                                <div className='flex md:flex-row flex-col justify-between items-center mt-2 mb-3'>
+                                                    <div className='md:w-[40%] w-[100%] mb-3'>
                                                         <div className='control-pane default'>
                                                             <div className='control-section'>
                                                                 <div className='timepicker-control-section'>
@@ -370,7 +370,7 @@ const TimeTracking = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className='w-[40%]'>
+                                                    <div className='md:w-[40%] w-[100%]'>
                                                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                             <DemoContainer components={['TimePicker']}>
                                                                 <TimePicker label="Out" value={ATimeOut}
@@ -399,7 +399,7 @@ const TimeTracking = () => {
 
                                         <img
 
-                                            className="w-[50%] h-[100%] animate-up-down"
+                                            className="w-[50%] h-[100%] animate-up-down hidden lg:block"
                                             srcSet={`${TimeTrackingPic}}?w=24&fit=crop&auto=format&dpr=2 2x`}
                                             src={`${TimeTrackingPic}`}
                                             alt="TimeTracking"
@@ -435,13 +435,13 @@ const TimeTracking = () => {
                                 </Toolbar>
                             </AppBar>
                             <List>
-                                <Typography className="font-bold flex justify-start items-center mt-8 ml-14">
+                                <Typography className="font-bold flex justify-start items-center md:mt-8 md:ml-14 mt-2 mx-2 md:mx-0">
                                     Elevating every moment through excellence and dedication. Committed to setting the benchmark in everything we do.
                                 </Typography>
 
-                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center ">
+                                <div className="h-[74vh] mt-5 lg:w-[90%] md:w-[90%] mx-auto flex flex-row justify-between items-center ">
 
-                                    <Card className="w-[70%] mr-10 h-[70vh] p-5 rounded-[20px] shadow-md">
+                                    <Card className="lg:w-[70%] md:w-[100%] w-[100%] lg:mr-10 md:h-[70vh] mx-2 md:mx-0 mt-[130px] md:mt-0 p-5 rounded-[20px] shadow-md">
 
                                         <div className='flex flex-row justify-between'>
                                             <Typography className='font-bold text-[#F66B0E]'>Revise</Typography>
@@ -451,8 +451,8 @@ const TimeTracking = () => {
                                         </div>
                                         <div className="  flex flex-col justify-start w-full ">
                                             <Typography className='font-semibold'>Shift - 1 </Typography>
-                                            <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                <div className='w-[40%]'>
+                                            <div className='flex md:flex-row flex-col justify-between items-center mt-2 mb-3'>
+                                                <div className='md:w-[40%] w-[100%] mb-3'>
                                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                         <DemoContainer components={['TimePicker']}>
                                                             <TimePicker label="In"
@@ -463,7 +463,7 @@ const TimeTracking = () => {
                                                         </DemoContainer>
                                                     </LocalizationProvider>
                                                 </div>
-                                                <div className='w-[40%]'>
+                                                <div className='md:w-[40%] w-[100%]'>
                                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                         <DemoContainer components={['TimePicker']}>
                                                             <TimePicker label="Out"
@@ -478,8 +478,8 @@ const TimeTracking = () => {
                                         </div>
                                         <div className="mt-3 mb-3 flex flex-col justify-start w-full ">
                                             <Typography className='font-semibold'>Shift - 2 </Typography>
-                                            <div className='flex flex-row justify-between items-center mt-2 mb-3'>
-                                                <div className=' w-[40%]'>
+                                            <div className='flex  md:flex-row flex-col justify-between items-center mt-2 mb-3'>
+                                                <div className='md:w-[40%] w-[100%] mb-3'>
                                                     <div className='control-pane default'>
                                                         <div className='control-section'>
                                                             <div className='timepicker-control-section'>
@@ -494,7 +494,7 @@ const TimeTracking = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className='w-[40%]'>
+                                                <div className='md:w-[40%] w-[100%]'>
                                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                         <DemoContainer components={['TimePicker']}>
                                                             <TimePicker label="Out" value={updatedATimeOut}
@@ -523,7 +523,7 @@ const TimeTracking = () => {
 
                                     <img
 
-                                        className="w-[50%] h-[100%] animate-up-down"
+                                        className="w-[50%] h-[100%] animate-up-down  hidden lg:block"
                                         srcSet={`${TimeTrackingPic}}?w=24&fit=crop&auto=format&dpr=2 2x`}
                                         src={`${TimeTrackingPic}`}
                                         alt="TimeTracking"
@@ -538,7 +538,7 @@ const TimeTracking = () => {
                     </div>
 
                 </div>
-                <div className="h-[65vh] overflow-y-auto" >
+                <div className="h-[65vh] overflow-y-auto md:mt-7" >
                     {timeSheetArray.map((item, idx) => (
                         <Accordion key={idx}>
                             <AccordionSummary
@@ -546,10 +546,10 @@ const TimeTracking = () => {
                                 aria-controls="panel1-content"
                                 id="panel1-header"
                             >
-                                <div className='flex flex-row w-[98%] justify-between items-center'>
+                                <div className='flex flex-row lg:w-[98%] md:w-[95%] justify-between items-center'>
 
-                                    <div className="flex flex-row justify-between items-center w-[25%]">
-                                        <Typography className="text-[15px] font-semibold mr-3">{item.currentDate}</Typography>
+                                    <div className="flex flex-row justify-between items-center lg:w-[25%]">
+                                        <Typography className="text-[15px] font-semibold md:mr-3">{item.currentDate}</Typography>
                                         <Divider orientation="vertical" variant="middle" className='mr-3' flexItem />
                                         <div onClick={() => handleClickOpenUpdateTimeSheet(item)}
                                             className="text-[#F86206] text-[14px] mr-3 font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
@@ -563,7 +563,7 @@ const TimeTracking = () => {
                                             /> Delete
                                         </div>
                                     </div>
-                                    <div className="flex flex-row  items-center">
+                                    <div className="md:flex flex-row  items-center hidden ">
                                         <Typography className="text-[15px] font-medium  mr-3">Total :</Typography>
                                         <div
                                             className="text-[#6E35ED] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
@@ -578,6 +578,14 @@ const TimeTracking = () => {
                                 <Typography className="text-wrap mb-3 ">
                                     <span className='font-medium'>Comments :</span> {item.notes}
                                 </Typography>
+                                <div className="flex flex-row  items-center md:hidden mb-5">
+                                        <Typography className="text-[15px] font-medium  mr-3">Total :</Typography>
+                                        <div
+                                            className="text-[#6E35ED] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                            <AccessTimeIcon className="w-6 h-5"
+                                            /><span className='ml-1'>{!isNaN(item.TotalHours) ? item.TotalHours : "-"}</span>
+                                        </div>
+                                    </div>
                                 <Paper sx={{ width: '100%' }}>
                                     <TableContainer sx={{ maxHeight: 440 }}>
                                         <Table stickyHeader aria-label="sticky table">

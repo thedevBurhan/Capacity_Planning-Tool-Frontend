@@ -224,15 +224,15 @@ const Personal = () => {
 return (
     <div>
         <NavBar />
-        <div className=" mt-10 lg:w-[77%] mx-auto h-[74vh]">
+        <div className=" mt-10 lg:w-[77%] md:w-[95%] mx-auto h-[74vh]">
             <div className="flex flex-row justify-between items-center py-3">
-                <div className="flex flex-row justify-center items-center">
+                <div className="flex flex-row justify-center items-center ml-2 md:ml-0">
                     <ArrowBackIosIcon className="w-8 h-8 text-[#F86206] cursor-pointer" onClick={() => history.goBack()} />
                     <Typography className="font-medium text-[20px] text-[#1B1B1B]">Personal</Typography>
 
                 </div>
                 <div>
-                    <Button variant="contained" className="bg-[#F86206]" onClick={handleClickOpenAddNote}>Add Note</Button>
+                    <Button variant="contained" className="bg-[#F86206] mr-2 md:mr-0" onClick={handleClickOpenAddNote}>Add Note</Button>
                     {/* For Add new Note Dialog box */}
                     <Dialog
                         fullScreen
@@ -258,10 +258,10 @@ return (
                         </AppBar>
                         <List>
 
-                            <Typography className="font-bold flex justify-center items-center mt-8">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
+                            <Typography className="font-bold flex justify-center items-center mt-8 mx-2 md:mx-2 ">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
                             <form onSubmit={addToDoList}>
-                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center">
-                                    <Card className="w-[80%] mr-10 h-[70vh] p-5 pt-5 rounded-[20px] shadow-md">
+                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex lg:flex-row lg:justify-between items-center flex-col  ">
+                                    <Card className="lg:w-[80%] w-[100%]  lg:mr-10 h-[70vh] mt-5 lg:mt-0 p-5 pt-5 rounded-[20px] shadow-md lg:order-1 md:order-2  order-2">
                                         <div className=" h-[65vh]  overflow-y-auto ">
 
                                             <Textarea aria-label="minimum height" minRows={15} placeholder="Type your thoughts here 😊....."
@@ -276,11 +276,11 @@ return (
 
                                         </div>
                                     </Card>
-                                    <Card className="w-[20%] h-[32vh] rounded-[20px] flex flex-col justify-center py-5 shadow-md">
+                                    <Card className="lg:w-[20%] md:w-[50%] w-[100%] mb-3 md:h-[32vh] h-[70vh]  rounded-[20px] flex flex-col justify-center py-5 shadow-md lg:order-2 md:order-1 order-1">
 
                                         <MenuItem className="">
                                             <TextField
-                                                className="w-[100%] "
+                                                className="w-[100%] mb-3 lg:mb-0"
                                                 id="outlined-basic" variant="outlined"
                                                 label="Personal"
                                                 disabled
@@ -344,10 +344,10 @@ return (
                         </AppBar>
                         <List>
 
-                            <Typography className="font-bold flex justify-center items-center mt-8">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
+                            <Typography className="font-bold flex justify-center items-center mt-8 mx-2 md:mx-2">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
                             <div >
-                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex flex-row justify-between items-center">
-                                    <Card className="w-[80%] mr-10 h-[70vh] p-5 pt-5 rounded-[20px] shadow-md">
+                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex lg:flex-row lg:justify-between items-center flex-col  ">
+                                    <Card className="lg:w-[80%] w-[100%]  lg:mr-10 h-[70vh] mt-5 lg:mt-0 p-5 pt-5 rounded-[20px] shadow-md lg:order-1 md:order-2 order-2">
                                         <div className=" h-[65vh]  overflow-y-auto ">
 
                                             <Textarea aria-label="minimum height" minRows={15} placeholder="Type your thoughts here 😊....."
@@ -363,11 +363,11 @@ return (
 
                                         </div>
                                     </Card>
-                                    <Card className="w-[20%] h-[35vh] rounded-[20px] flex flex-col justify-center py-5 shadow-md">
+                                    <Card className="lg:w-[20%] md:w-[50%] w-[100%] mb-3 md:h-[32vh] h-[70vh]  rounded-[20px] flex flex-col justify-center py-5 shadow-md lg:order-2 md:order-1 order-1">
 
                                         <MenuItem className="">
                                             <TextField
-                                                className="w-[100%] mb-2 mt-2"
+                                                className="w-[100%] mb-3 lg:mb-0"
                                                 id="outlined-basic" variant="outlined"
                                                 label="Personal"
                                                 disabled
@@ -409,7 +409,7 @@ return (
                 </div>
 
             </div>
-            <div className="h-[65vh] overflow-y-auto" >
+            <div className="h-[65vh] overflow-y-auto p-2 md:p-0  mt-7 md:mt-0" >
                 {todolist.map((todolist, idx) => (
                     <Accordion
                         key={idx}>
@@ -420,8 +420,8 @@ return (
                         >
                             <div className='flex flex-row w-[98%] justify-between items-center'>
                                 <Typography className={`text-[16px]  font-medium ${MyToDoListColorMap[todolist.noteHead]?.color}`}>{todolist.noteHead}</Typography>
-                                <div className="flex flex-row justify-between items-center w-[25%]">
-                                    <Typography className="text-[14px] mr-3 font-medium">{todolist.currentDate}</Typography>
+                                <div className="flex flex-row justify-between items-center lg:w-[25%] md:w-[40%]">
+                                    <Typography className="text-[14px] mr-3 font-medium md:block hidden">{todolist.currentDate}</Typography>
                                     <div onClick={() => handleClickOpenUpdateNote(todolist)}
                                         className="text-[#F86206] text-[14px] font-medium cursor-pointer mr-3 rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                         <EditNoteIcon className="w-6 h-5"
@@ -437,6 +437,7 @@ return (
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
+                        <Typography className="text-[14px] mr-3 font-semibold block md:hidden">{todolist.currentDate}</Typography>
                             <Typography className="text-wrap">
                                 {todolist.notes}
                             </Typography>
