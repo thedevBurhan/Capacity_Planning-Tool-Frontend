@@ -14,7 +14,10 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-const socket = io.connect("https://capacity-planning-tool-backened.vercel.app");
+const socket = io("https://capacity-planning-tool-backened.vercel.app", {
+  withCredentials: true,
+  transports: ["websocket", "polling"],
+});
 const Chat = () => {
     const history = useHistory();
     const [user, setUser] = useState(localStorage.getItem('id'));
@@ -40,6 +43,10 @@ const Chat = () => {
                 data
             ]))
         });
+        return () => {
+            socket.off('getUsers');
+            socket.off('getMessage');
+          };
     }, [socket])
 
     useEffect(() => {
