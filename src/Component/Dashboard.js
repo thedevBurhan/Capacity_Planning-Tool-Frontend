@@ -134,7 +134,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </Card>
-                <Card className="md:w-[50%] w-[80%] h-[400px] border border-solid border-[#fff4e6] p-5 cursor-pointer group  relative">
+                <Card className="md:w-[50%] w-[80%] h-[400px]  mb-10  border border-solid border-[#fff4e6] p-5  group  relative">
                     <video
                         className="h-[150px] mx-auto"
                         autoPlay
