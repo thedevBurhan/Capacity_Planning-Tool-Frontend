@@ -14,7 +14,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-const socket = io.connect("https://capacity-planning-tool-backened.vercel.app/");
+const socket = io.connect("https://capacity-planning-tool-backened.vercel.app");
 
 const Chat = () => {
     const history = useHistory();
