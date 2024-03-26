@@ -61,7 +61,7 @@ const Register = () => {
   // fetch
   const handleSignIn = async (userInfo) => {
     const res = await fetch(
-      `https://capacity-planning-tool-backened.vercel.app/users/signup`,
+      `http://localhost:9045/users/signup`,
       {
         method: "POST",
         body: JSON.stringify(userInfo),

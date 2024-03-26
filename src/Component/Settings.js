@@ -34,7 +34,7 @@ const Settings = () => {
     const handleResetPassword = async (userInfo) => {
         // console.log(userInfo)
         const res = await fetch(
-            `https://capacity-planning-tool-backened.vercel.app/users/resetpassword`,
+            `http://localhost:9045/users/resetpassword`,
             {
                 method: "POST",
                 body: JSON.stringify(userInfo),

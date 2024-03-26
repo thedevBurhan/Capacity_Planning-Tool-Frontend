@@ -14,7 +14,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-const socket = io.connect("https://capacity-planning-tool-backened.vercel.app");
+const socket = io.connect("http://localhost:9045");
 
 const Chat = () => {
     const history = useHistory();
@@ -76,7 +76,7 @@ const Chat = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y)
             let req = await axios.get(
-                `https://capacity-planning-tool-backened.vercel.app/users/all`,
+                `http://localhost:9045/users/all`,
             );
             const { data } = req.data;
             const removingUserdata = data.filter((item) => item._id !== y);
@@ -93,7 +93,7 @@ const Chat = () => {
         try {
             localStorage.setItem("recevierId", receiverId);
             // console.log(receiverId);
-            const getexistingChat = await axios.get(`https://capacity-planning-tool-backened.vercel.app/chat/allConversationData`, {
+            const getexistingChat = await axios.get(`http://localhost:9045/chat/allConversationData`, {
                 headers: {
                     authtoken: window.localStorage.getItem("token"),
                 },
@@ -115,7 +115,7 @@ const Chat = () => {
             } else {
                 const userId = window.localStorage.getItem("id");
                 const CreateChat = await axios.post(
-                    `https://capacity-planning-tool-backened.vercel.app/chat/`,
+                    `http://localhost:9045/chat/`,
                     {
                         userid: userId,
                         senderId: userId,
@@ -142,7 +142,7 @@ const Chat = () => {
     const fetchSpecificUserConversation = async (senderId, conversationId) => {
         try {
             const response = await axios.get(
-                `https://capacity-planning-tool-backened.vercel.app/chat/specificUser/${senderId}/${conversationId}`,
+                `http://localhost:9045/chat/specificUser/${senderId}/${conversationId}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -162,7 +162,7 @@ const Chat = () => {
             let y = id;
             // console.log(y)
             let req = await axios.get(
-                `https://capacity-planning-tool-backened.vercel.app/users/all`,
+                `http://localhost:9045/users/all`,
             );
             const { data } = req.data;
             const Userdata = data.filter((item) => item._id === y);
@@ -176,7 +176,7 @@ const Chat = () => {
     const fetchSpecificMessagesBtwTwoUsers = async (y) => {
         try {
             let req = await axios.get(
-                `https://capacity-planning-tool-backened.vercel.app/chat/messages/specificUser/${y}`,
+                `http://localhost:9045/chat/messages/specificUser/${y}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -212,7 +212,7 @@ const Chat = () => {
             // console.log(secondPersonId);
             // console.log(conversationId);
             let req = await axios.post(
-                `https://capacity-planning-tool-backened.vercel.app/chat/messages`,
+                `http://localhost:9045/chat/messages`,
                 {
                     userid: userId,
                     senderId: userId,

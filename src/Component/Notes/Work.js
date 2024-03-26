@@ -104,7 +104,7 @@ const Work = () => {
         handleCloseAddNote();
         try {
             let req = await axios.post(
-                `https://capacity-planning-tool-backened.vercel.app/toDoListdata/`,
+                `http://localhost:9045/toDoListdata/`,
                 {
                     userid: window.localStorage.getItem("id"),
                     type,
@@ -141,7 +141,7 @@ const Work = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y);
             let req = await axios.get(
-                `https://capacity-planning-tool-backened.vercel.app/toDoListdata/specificUser/${y}`,
+                `http://localhost:9045/toDoListdata/specificUser/${y}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -167,7 +167,7 @@ const Work = () => {
         // console.log(id)
         try {
             let req = await axios.delete(
-                `https://capacity-planning-tool-backened.vercel.app/toDoListdata/deleteToDoListData/${id}`,
+                `http://localhost:9045/toDoListdata/deleteToDoListData/${id}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -196,7 +196,7 @@ const Work = () => {
         try {
             // console.log(updateId, updateNoteHead, updateNotes)
             const response = await axios.put(
-                `https://capacity-planning-tool-backened.vercel.app/toDoListdata/edit/${updateId}`,
+                `http://localhost:9045/toDoListdata/edit/${updateId}`,
                 {
                     userid: window.localStorage.getItem("id"),
                     type: "Work",
