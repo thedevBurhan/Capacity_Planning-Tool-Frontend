@@ -219,10 +219,10 @@ const Work = () => {
             // console.log("Edit ToDoList Response:", response.data);
         }
         catch (error) {
-        console.error("Error in editToDoList:", error);
-        Toast.fire({ icon: "error", title: "An error occurred while updating ToDoList" });
-    }
-};
+            console.error("Error in editToDoList:", error);
+            Toast.fire({ icon: "error", title: "An error occurred while updating ToDoList" });
+        }
+    };
     return (
         <div>
             <NavBar />
@@ -320,93 +320,93 @@ const Work = () => {
                                 </form>
                             </List>
                         </Dialog>
-                         {/*For Update Note Dialog box   */}
-                    <Dialog
-                        fullScreen
-                        open={openUpdateNote}
-                        onClose={handleCloseUpdateNote}
-                        TransitionComponent={Transition}
-                    >
-                        <AppBar sx={{ position: 'relative', backgroundColor: "#F86206" }}>
-                            <Toolbar>
-                                <IconButton
-                                    edge="start"
-                                    color="inherit"
-                                    aria-label="close"
-                                    onClick={handleCloseUpdateNote}
-                                >
-                                    <CloseIcon />
-                                </IconButton>
-                                <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                    Update Work
-                                </Typography>
+                        {/*For Update Note Dialog box   */}
+                        <Dialog
+                            fullScreen
+                            open={openUpdateNote}
+                            onClose={handleCloseUpdateNote}
+                            TransitionComponent={Transition}
+                        >
+                            <AppBar sx={{ position: 'relative', backgroundColor: "#F86206" }}>
+                                <Toolbar>
+                                    <IconButton
+                                        edge="start"
+                                        color="inherit"
+                                        aria-label="close"
+                                        onClick={handleCloseUpdateNote}
+                                    >
+                                        <CloseIcon />
+                                    </IconButton>
+                                    <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                                        Update Work
+                                    </Typography>
 
-                            </Toolbar>
-                        </AppBar>
-                        <List>
+                                </Toolbar>
+                            </AppBar>
+                            <List>
 
-                            <Typography className="font-bold flex justify-center items-center mt-8 mx-2 md:mx-2">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
-                            <div >
-                                <div className="h-[74vh] mt-5 w-[90%] mx-auto flex lg:flex-row lg:justify-between items-center flex-col ">
-                                    <Card className="lg:w-[80%] w-[100%]  lg:mr-10 h-[70vh] mt-5 lg:mt-0 p-5 pt-5 rounded-[20px] shadow-md lg:order-1 md:order-2 order-2">
-                                        <div className=" h-[65vh]  overflow-y-auto ">
+                                <Typography className="font-bold flex justify-center items-center mt-8 mx-2 md:mx-2">Professional repository for essential information, innovative ideas, insightful reflections, and actionable tasks for personal and organizational use.</Typography>
+                                <div >
+                                    <div className="h-[74vh] mt-5 w-[90%] mx-auto flex lg:flex-row lg:justify-between items-center flex-col ">
+                                        <Card className="lg:w-[80%] w-[100%]  lg:mr-10 h-[70vh] mt-5 lg:mt-0 p-5 pt-5 rounded-[20px] shadow-md lg:order-1 md:order-2 order-2">
+                                            <div className=" h-[65vh]  overflow-y-auto ">
 
-                                            <Textarea aria-label="minimum height" minRows={15} placeholder="Type your thoughts here 😊....."
-                                                type="text"
-                                                name="Notes"
-                                                value={updateNotes}
-                                                required
-                                                onChange={(e) => {
-                                                    setUpdateNotes(e.target.value);
-                                                }} />
-
-
-
-                                        </div>
-                                    </Card>
-                                    <Card className="lg:w-[20%] md:w-[50%] w-[100%] mb-3 md:h-[32vh] h-[70vh]  rounded-[20px] flex flex-col justify-center py-5 shadow-md lg:order-2 md:order-1 order-1">
-
-                                        <MenuItem className="">
-                                            <TextField
-                                                className="w-[100%] mb-3 lg:mb-0"
-                                                id="outlined-basic" variant="outlined"
-                                                label="Personal"
-                                                disabled
-                                            />
-                                        </MenuItem>
-                                        <MenuItem>
-                                            <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">Topic</InputLabel>
-                                                <Select
-                                                    labelId="demo-simple-select-label"
-                                                    id="demo-simple-select"
-                                                    value={updateNoteHead}
-                                                    label="Topic"
+                                                <Textarea aria-label="minimum height" minRows={15} placeholder="Type your thoughts here 😊....."
+                                                    type="text"
+                                                    name="Notes"
+                                                    value={updateNotes}
                                                     required
                                                     onChange={(e) => {
-                                                        setUpdateNoteHead(e.target.value);
-                                                    }}
-                                                >
-                                                    {headingOption.map((item) => (
-                                                        <MenuItem key={item.id} value={item.value}>
-                                                            {item.label}
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
-                                            </FormControl>
-                                        </MenuItem>
-                                        <div className=" flex justify-end mt-3 mr-4">
-                                            <Button variant="contained" className="bg-[#F86206] "
-                                                onClick={() => editToDoList()} >
-                                                Save
-                                            </Button>
-                                        </div>
+                                                        setUpdateNotes(e.target.value);
+                                                    }} />
 
-                                    </Card>
+
+
+                                            </div>
+                                        </Card>
+                                        <Card className="lg:w-[20%] md:w-[50%] w-[100%] mb-3 md:h-[32vh] h-[70vh]  rounded-[20px] flex flex-col justify-center py-5 shadow-md lg:order-2 md:order-1 order-1">
+
+                                            <MenuItem className="">
+                                                <TextField
+                                                    className="w-[100%] mb-3 lg:mb-0"
+                                                    id="outlined-basic" variant="outlined"
+                                                    label="Personal"
+                                                    disabled
+                                                />
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <FormControl fullWidth>
+                                                    <InputLabel id="demo-simple-select-label">Topic</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                        value={updateNoteHead}
+                                                        label="Topic"
+                                                        required
+                                                        onChange={(e) => {
+                                                            setUpdateNoteHead(e.target.value);
+                                                        }}
+                                                    >
+                                                        {headingOption.map((item) => (
+                                                            <MenuItem key={item.id} value={item.value}>
+                                                                {item.label}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </FormControl>
+                                            </MenuItem>
+                                            <div className=" flex justify-end mt-3 mr-4">
+                                                <Button variant="contained" className="bg-[#F86206] "
+                                                    onClick={() => editToDoList()} >
+                                                    Save
+                                                </Button>
+                                            </div>
+
+                                        </Card>
+                                    </div>
                                 </div>
-                            </div>
-                        </List>
-                    </Dialog>
+                            </List>
+                        </Dialog>
                     </div>
 
                 </div>
@@ -421,18 +421,18 @@ const Work = () => {
                             >
                                 <div className='flex flex-row w-[98%] justify-between items-center'>
                                     <Typography className={`text-[16px] font-medium ${MyToDoListColorMap[todolist.noteHead]?.color}`}>{todolist.noteHead}</Typography>
-                                   
+
                                     <div className="flex flex-row justify-between items-center lg:w-[25%] md:w-[40%]">
                                         <Typography className="text-[14px] mr-3 font-medium md:block hidden">{todolist.currentDate}</Typography>
-                                        <div   onClick={() => handleClickOpenUpdateNote(todolist)}
-                                        className="text-[#F86206] text-[14px] font-medium mr-3 cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                        <div onClick={() => handleClickOpenUpdateNote(todolist)}
+                                            className="text-[#F86206] text-[14px] font-medium mr-3 cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                             <EditNoteIcon className="w-6 h-5"
-                                                /> Edit
+                                            /> Edit
                                         </div>
-                                        <div  onClick={() => delToDolist(todolist._id)}
-                                        className="text-[#DC4134] text-[14px] font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                        <div onClick={() => delToDolist(todolist._id)}
+                                            className="text-[#DC4134] text-[14px] font-medium cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
                                             <DeleteOutlineRoundedIcon className="w-6 h-5"
-                                                /> Delete
+                                            /> Delete
                                         </div>
                                         <Divider orientation="vertical" variant="middle" className='ml-3' flexItem />
                                     </div>
@@ -440,7 +440,7 @@ const Work = () => {
                                 </div>
                             </AccordionSummary>
                             <AccordionDetails>
-                            <Typography className="text-[14px] mr-3 font-semibold block md:hidden">{todolist.currentDate}</Typography>
+                                <Typography className="text-[14px] mr-3 font-semibold block md:hidden">{todolist.currentDate}</Typography>
                                 <Typography className="text-wrap">
                                     {todolist.notes}
                                 </Typography>

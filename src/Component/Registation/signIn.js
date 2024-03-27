@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -77,7 +76,7 @@ const Register = () => {
     handleClick();
   };
 
- 
+
   return (
     <div>
       <body className="body-Signbackground h-[100vh] flex lg:items-center md:items-start items-center p-2">

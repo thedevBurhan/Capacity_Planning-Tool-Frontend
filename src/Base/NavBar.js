@@ -9,11 +9,11 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import logo from "../images/idea.png";
 import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
-import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import NotesRoundedIcon from '@mui/icons-material/NotesRounded';
 import HourglassEmptyRoundedIcon from '@mui/icons-material/HourglassEmptyRounded';
 import NotesIcon from '@mui/icons-material/Notes';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
+import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 
 const NavBar = () => {
     const history = useHistory();
@@ -257,7 +257,7 @@ const NavBar = () => {
             </div>
 
             <div className="container-fluid hidden shadow-md lg:block sm:hidden bg-white ">
-                <div className="lg:w-[64%] xl:w-[68%] h-15 py-3 ml-[175px]  ">
+                <div className="lg:w-[64%] xl:w-[64%] h-15 py-3 ml-[175px] ">
                     <div className="flex justify-between">
                         <div className="flex justify-between mr-3 items-center text-[#8a949f] hover:text-[#6C737F] hover:cursor-pointer">
                             <DashboardRoundedIcon className={pathname === "/dashboard" ? "w-[25px] text-[#fba26a] mr-1" : "w-[25px] text-[#6C737F] mr-1"} />

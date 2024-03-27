@@ -1,5 +1,5 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Button, Card, Dialog, Divider, FormControl, IconButton, InputLabel, List, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Toolbar, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Button, Card, Dialog, Divider, IconButton, List, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Toolbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useEffect } from "react";
 import NavBar from "../Base/NavBar";
@@ -579,13 +579,13 @@ const TimeTracking = () => {
                                     <span className='font-medium'>Comments :</span> {item.notes}
                                 </Typography>
                                 <div className="flex flex-row  items-center md:hidden mb-5">
-                                        <Typography className="text-[15px] font-medium  mr-3">Total :</Typography>
-                                        <div
-                                            className="text-[#6E35ED] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
-                                            <AccessTimeIcon className="w-6 h-5"
-                                            /><span className='ml-1'>{!isNaN(item.TotalHours) ? item.TotalHours : "-"}</span>
-                                        </div>
+                                    <Typography className="text-[15px] font-medium  mr-3">Total :</Typography>
+                                    <div
+                                        className="text-[#6E35ED] text-[14px] font-bold cursor-pointer rounded-sm flex items-center border border-solid border-[#E3E7EB] px-2 py-1" >
+                                        <AccessTimeIcon className="w-6 h-5"
+                                        /><span className='ml-1'>{!isNaN(item.TotalHours) ? item.TotalHours : "-"}</span>
                                     </div>
+                                </div>
                                 <Paper sx={{ width: '100%' }}>
                                     <TableContainer sx={{ maxHeight: 440 }}>
                                         <Table stickyHeader aria-label="sticky table">

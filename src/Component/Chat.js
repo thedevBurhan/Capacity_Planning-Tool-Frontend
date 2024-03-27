@@ -1,8 +1,7 @@
 import NavBar from "../Base/NavBar";
 import { useHistory } from "react-router-dom";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Avatar, Badge, Box, Button, Divider, Input, Menu, TextField, Tooltip, Typography } from "@mui/material";
-import MessageIcon from '@mui/icons-material/Message';
+import { Avatar,Box, Button, Divider, Menu, TextField, Tooltip, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useEffect, useRef, useState } from "react";

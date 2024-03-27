@@ -72,7 +72,7 @@ const Dashboard = () => {
                     <div onClick={() => history.push("/meeting")}
                         className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
                         <Typography className="text-2xl  font-semibold text-black">Meeting</Typography>
-                        
+
                     </div>
                 </Card>
 
@@ -92,14 +92,14 @@ const Dashboard = () => {
                     <div className="flex h-[220px] overflow-y-auto">
                         <Typography className="flex justify-center text-justify">
                             Chats are another integral component of modern workplaces, enabling real-time communication among team members.
-                           It's includes chat functionalities that allow teams to engage in discussions, share updates, and seek clarification instantly.
-                           
+                            It's includes chat functionalities that allow teams to engage in discussions, share updates, and seek clarification instantly.
+
                         </Typography>
                     </div>
                     <div onClick={() => history.push("/chat")}
                         className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
                         <Typography className="text-2xl font-semibold text-black">Chat</Typography>
-                        
+
                     </div>
                 </Card>
                 <Card className="md:w-[50%] w-[80%] h-[400px] lg:mr-5 mb-10  border border-solid border-[#fff4e6] p-5  group  relative">
@@ -120,17 +120,17 @@ const Dashboard = () => {
                             Notes serve as a repository for important information, ideas, and insights.
                             The capacity planning tool includes features for creating, organizing, and sharing notes,
                             ensuring that valuable knowledge is captured and accessible to relevant stakeholders.
-                           
+
                         </Typography>
                     </div>
-                    <div 
+                    <div
                         className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
                         <Typography className="text-2xl font-semibold text-black">Notes</Typography>
                         <div className="flex flex-row justify-between  rounded-full bg-white mt-5 ">
-                        <Typography onClick={() => history.push("/personal")} className=" cursor-pointer w-[100px] font-bold flex items-center 
+                            <Typography onClick={() => history.push("/personal")} className=" cursor-pointer w-[100px] font-bold flex items-center 
                         justify-center hover:bg-[#fff4e6] hover:rounded-[2px] ">Personal</Typography>
-                    
-                        <Typography onClick={() => history.push("/work")} className=" cursor-pointer w-[100px] font-bold flex items-center justify-center hover:bg-[#fff4e6] hover:rounded-[2px]">Work</Typography>
+
+                            <Typography onClick={() => history.push("/work")} className=" cursor-pointer w-[100px] font-bold flex items-center justify-center hover:bg-[#fff4e6] hover:rounded-[2px]">Work</Typography>
                         </div>
                     </div>
                 </Card>
@@ -149,7 +149,7 @@ const Dashboard = () => {
                     </video>
                     <div className="flex h-[220px] overflow-y-auto">
                         <Typography className="flex justify-center text-justify ">
-                         Time sheet functionality, allowing employees to log their hours spent on
+                            Time sheet functionality, allowing employees to log their hours spent on
                             various tasks and projects accurately. This data can be used to analyze resource utilization,
                             track project budgets, and make informed decisions to optimize efficiency and productivity.
                         </Typography>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                     <div onClick={() => history.push("/timesheet")}
                         className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center dashboard-card opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
                         <Typography className="text-2xl font-semibold text-black">Time Sheet</Typography>
-                        
+
                     </div>
                 </Card>
             </div>

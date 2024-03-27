@@ -141,7 +141,7 @@ const Login = () => {
                 <div className="flex flex-col mt-5">
                   <Typography className="font-bold ml-2  text-[15px] text-left  " >User Name</Typography>
                   <TextField variant="outlined"
-                    
+
                     id="standard-basic"
                     className="ml-2 mt-2 md:w-[470px] w-[300px]"
                     label="Enter Name"
@@ -161,7 +161,7 @@ const Login = () => {
                 <div className="flex flex-col mt-[-25px]">
                   <Typography className="font-bold ml-2  text-[15px] text-left  " >Email</Typography>
                   <TextField
-                   
+
                     label="Enter Your Email"
                     name="email"
                     className="ml-2 mt-2 md:w-[470px] w-[300px]"
@@ -183,7 +183,7 @@ const Login = () => {
                 <div className="flex flex-col mt-[-25px]">
                   <Typography className="font-bold ml-2  text-[15px] text-left  " >Password</Typography>
                   <TextField
-                   
+
                     id="standard-basic"
                     variant="outlined"
                     className="ml-2 mt-2 md:w-[470px] w-[300px]"
@@ -201,29 +201,29 @@ const Login = () => {
                 </div>
               </CardContent>
               <div className="mx-5 md:mx-0">
-              <div className=" mt-2 lg:ml-5">
-                <Button
-                  className="lg:w-[95%] w-[100%] bg-[#FFA920] text-white font-bold cursor-pointer"
-                  type="submit"
+                <div className=" mt-2 lg:ml-5">
+                  <Button
+                    className="lg:w-[95%] w-[100%] bg-[#FFA920] text-white font-bold cursor-pointer"
+                    type="submit"
+
+                  >
+                    Login
+                  </Button>
+
+                </div>
+                <Typography
+                  className="mt-3 text-left ml-7 mb-3 md:mb-0"
+                  onClick={() => history.push("/SignIn")}
 
                 >
-                  Login
-                </Button>
-
-              </div>
-              <Typography
-                className="mt-3 text-left ml-7 mb-3 md:mb-0"
-                onClick={() => history.push("/SignIn")}
-  
-              >
-               Don't have an acount? <span className="cursor-pointer text-[#FFA920] font-bold">SignUp</span>
-              </Typography>
+                  Don't have an acount? <span className="cursor-pointer text-[#FFA920] font-bold">SignUp</span>
+                </Typography>
               </div>
             </form>
           </div>
           <div className=" flex flex-col justify-between
             h-[100%] lg:w-[50%] bg-[#FFA920] rounded-[20px]">
-           
+
             <div className="hidden lg:flex items-end  absolute right-[120px] bottom-0 ">
               <Wallpaper />
             </div>
