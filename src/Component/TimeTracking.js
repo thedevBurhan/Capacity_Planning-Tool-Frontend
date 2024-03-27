@@ -108,7 +108,7 @@ const TimeTracking = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y);
             let req = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/timeSheet/specificUser/${y}`,
+                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/timeSheet/specificUser/${y}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -144,7 +144,7 @@ const TimeTracking = () => {
                 alert("Please enter a Shift - 1 time");
             } else {
                 let req = await axios.post(
-                    `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/timeSheet/`,
+                    `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/timeSheet/`,
                     {
                         userid: window.localStorage.getItem("id"),
                         MTimeIn: MTimeInString,
@@ -187,7 +187,7 @@ const TimeTracking = () => {
         // console.log(id)
         try {
             let req = await axios.delete(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/timeSheet/deleteTimeSheetData/${id}`,
+                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/timeSheet/deleteTimeSheetData/${id}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -232,7 +232,7 @@ const TimeTracking = () => {
             // Calculate total hours worked
             const totalHours = (MTimeDifference + ATimeDifference).toFixed(2);
             const response = await axios.put(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/timeSheet/edit/${updateId}`,
+                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/timeSheet/edit/${updateId}`,
                 {
                     userid: window.localStorage.getItem("id"),
                     MTimeIn: MTimeInString,
