@@ -60,7 +60,7 @@ const Register = () => {
   // fetch
   const handleSignIn = async (userInfo) => {
     const res = await fetch(
-      `http://localhost:9045/users/signup`,
+      `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/users/signup`,
       {
         method: "POST",
         body: JSON.stringify(userInfo),

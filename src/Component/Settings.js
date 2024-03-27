@@ -34,7 +34,7 @@ const Settings = () => {
     const handleResetPassword = async (userInfo) => {
         // console.log(userInfo)
         const res = await fetch(
-            `http://localhost:9045/users/resetpassword`,
+            `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/users/resetpassword`,
             {
                 method: "POST",
                 body: JSON.stringify(userInfo),

@@ -60,7 +60,7 @@ const Login = () => {
   const handleLogin = async (userInfo) => {
     // console.log(userInfo)
     const res = await fetch(
-      `http://localhost:9045/users/login`,
+      `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/users/login`,
       {
         method: "POST",
         body: JSON.stringify(userInfo),
