@@ -13,7 +13,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-const socket = io.connect("http://localhost:9045");
+const BACKEND_URL = "https://capacity-planning-tool-backened.onrender.com";
 
 const Chat = () => {
     const history = useHistory();
@@ -27,7 +27,16 @@ const Chat = () => {
     const [message, setMessage] = useState();
     const [messages, setMessages] = useState("");
     const messageContainerRef = useRef(null);
-    console.log(message);
+    // console.log(message);
+    const [socket, setSocket] = useState(null);
+    useEffect(() => {
+        const newSocket = io.connect(BACKEND_URL);
+        setSocket(newSocket);
+
+        return () => {
+            newSocket.disconnect();
+        };
+    }, []);
     useEffect(() => {
         socket.emit('addUser', user);
         socket.on('getUsers', users => {
@@ -40,7 +49,7 @@ const Chat = () => {
                 data
             ]))
         });
-    }, [socket])
+    }, [user])
 
     useEffect(() => {
         if (messageContainerRef.current) {
@@ -75,7 +84,7 @@ const Chat = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y)
             let req = await axios.get(
-                `https://capacity-planning-tool-backened.onrender.com/api/users/all`,
+                `${BACKEND_URL}/api/users/all`,
             );
             const { data } = req.data;
             const removingUserdata = data.filter((item) => item._id !== y);
