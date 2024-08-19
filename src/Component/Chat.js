@@ -49,7 +49,7 @@ const Chat = () => {
                 data
             ]))
         });
-    }, [user])
+    }, [socket])
 
     useEffect(() => {
         if (messageContainerRef.current) {
