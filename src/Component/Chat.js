@@ -13,7 +13,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-// const socket = io.connect("https://capacity-planning-tool-backened.onrender.com");
+const socket = io.connect("http://localhost:9045");
 
 const Chat = () => {
     const history = useHistory();
@@ -28,15 +28,6 @@ const Chat = () => {
     const [messages, setMessages] = useState("");
     const messageContainerRef = useRef(null);
     console.log(message);
-    const [socket, setSocket] = useState(null);
-    useEffect(() => {
-        const newSocket = io.connect("https://capacity-planning-tool-backened.onrender.com");
-        setSocket(newSocket);
-
-        return () => {
-            newSocket.disconnect();
-        };
-    }, []);
     useEffect(() => {
         socket.emit('addUser', user);
         socket.on('getUsers', users => {
