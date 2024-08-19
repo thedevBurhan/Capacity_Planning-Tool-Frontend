@@ -60,7 +60,7 @@ const Register = () => {
   // fetch
   const handleSignIn = async (userInfo) => {
     const res = await fetch(
-      `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/users/signup`,
+      `https://capacity-planning-tool-backened.onrender.com/api/users/signup`,
       {
         method: "POST",
         body: JSON.stringify(userInfo),

@@ -104,7 +104,7 @@ const Work = () => {
         handleCloseAddNote();
         try {
             let req = await axios.post(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/toDoListdata/`,
+                `https://capacity-planning-tool-backened.onrender.com/api/toDoListdata/`,
                 {
                     userid: window.localStorage.getItem("id"),
                     type,
@@ -141,7 +141,7 @@ const Work = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y);
             let req = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/toDoListdata/specificUser/${y}`,
+                `https://capacity-planning-tool-backened.onrender.com/api/toDoListdata/specificUser/${y}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -167,7 +167,7 @@ const Work = () => {
         // console.log(id)
         try {
             let req = await axios.delete(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/toDoListdata/deleteToDoListData/${id}`,
+                `https://capacity-planning-tool-backened.onrender.com/api/toDoListdata/deleteToDoListData/${id}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -196,7 +196,7 @@ const Work = () => {
         try {
             // console.log(updateId, updateNoteHead, updateNotes)
             const response = await axios.put(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/toDoListdata/edit/${updateId}`,
+                `https://capacity-planning-tool-backened.onrender.com/api/toDoListdata/edit/${updateId}`,
                 {
                     userid: window.localStorage.getItem("id"),
                     type: "Work",

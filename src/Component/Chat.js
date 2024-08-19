@@ -13,7 +13,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 
-const socket = io.connect("http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045");
+const socket = io.connect("http://localhost:9045");
 
 const Chat = () => {
     const history = useHistory();
@@ -75,7 +75,7 @@ const Chat = () => {
             let y = window.localStorage.getItem("id");
             // console.log(y)
             let req = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/users/all`,
+                `https://capacity-planning-tool-backened.onrender.com/api/users/all`,
             );
             const { data } = req.data;
             const removingUserdata = data.filter((item) => item._id !== y);
@@ -92,7 +92,7 @@ const Chat = () => {
         try {
             localStorage.setItem("recevierId", receiverId);
             // console.log(receiverId);
-            const getexistingChat = await axios.get(`http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/chat/allConversationData`, {
+            const getexistingChat = await axios.get(`https://capacity-planning-tool-backened.onrender.com/api/chat/allConversationData`, {
                 headers: {
                     authtoken: window.localStorage.getItem("token"),
                 },
@@ -114,7 +114,7 @@ const Chat = () => {
             } else {
                 const userId = window.localStorage.getItem("id");
                 const CreateChat = await axios.post(
-                    `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/chat/`,
+                    `https://capacity-planning-tool-backened.onrender.com/api/chat/`,
                     {
                         userid: userId,
                         senderId: userId,
@@ -141,7 +141,7 @@ const Chat = () => {
     const fetchSpecificUserConversation = async (senderId, conversationId) => {
         try {
             const response = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/chat/specificUser/${senderId}/${conversationId}`,
+                `https://capacity-planning-tool-backened.onrender.com/api/chat/specificUser/${senderId}/${conversationId}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -161,7 +161,7 @@ const Chat = () => {
             let y = id;
             // console.log(y)
             let req = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/users/all`,
+                `https://capacity-planning-tool-backened.onrender.com/api/users/all`,
             );
             const { data } = req.data;
             const Userdata = data.filter((item) => item._id === y);
@@ -175,7 +175,7 @@ const Chat = () => {
     const fetchSpecificMessagesBtwTwoUsers = async (y) => {
         try {
             let req = await axios.get(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/chat/messages/specificUser/${y}`,
+                `https://capacity-planning-tool-backened.onrender.com/api/chat/messages/specificUser/${y}`,
                 {
                     headers: {
                         authtoken: window.localStorage.getItem("token"),
@@ -211,7 +211,7 @@ const Chat = () => {
             // console.log(secondPersonId);
             // console.log(conversationId);
             let req = await axios.post(
-                `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/chat/messages`,
+                `https://capacity-planning-tool-backened.onrender.com/api/chat/messages`,
                 {
                     userid: userId,
                     senderId: userId,

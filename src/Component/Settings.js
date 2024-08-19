@@ -34,7 +34,7 @@ const Settings = () => {
     const handleResetPassword = async (userInfo) => {
         // console.log(userInfo)
         const res = await fetch(
-            `http://ec2-13-235-50-78.ap-south-1.compute.amazonaws.com:9045/api/users/resetpassword`,
+            `https://capacity-planning-tool-backened.onrender.com/api/users/resetpassword`,
             {
                 method: "POST",
                 body: JSON.stringify(userInfo),
